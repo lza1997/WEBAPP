@@ -1,25 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 
 
-	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+<link rel="stylesheet" href="./css/camera.css">
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+<style type="text/css">
+#camera_wrap{
+		clear: both;
+		display: block;
+		height: 80px;
+		line-height: 40px;
+		padding: 20px;
+		over-flow:hidden;
+}
+
+</style>
+
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+<script src="./js/camera.min.js"></script>
+
+
+<script>
 	
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
-	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-	
-	<script>
-		$(document).ready(function(){
-		
-		   $("#searchBtn").on("vclick",function(){
-		   		location.href='map.html'
-		   })
-		
+
+		jQuery(function(){
+			
+			jQuery('#camera_wrap').camera({
+				time: 500,
+				height:'120px',
+				//loader: 'bar',
+				//thumbnails:false,
+				pagination: false
+			});
 		});
-	</script>
+	
+	
+</script>
 
 
 </head>
@@ -27,42 +54,454 @@
 <body>
 
 
-<div data-role="page" id="pageone">
-	
-	  <div data-role="header">
-		<h1>欢迎访问我的主页</h1>
-	  </div>
-	  
-		<div data-role="navbar">
-		  <ul>
-			<li><a href="#" data-icon="home">首页</a></li>
-			<li><a href="#" data-icon="info">消息</a></li>
-			<li><a href="#" data-icon="search">定位</a></li>
-			<li><a href="#" data-icon="grid">个人中心</a></li>
-		  </ul>
+	<!--  index page start-->
+	<div data-role="page" id="index" >
+
+		<div data-role="header" data-theme="d" >
+		    <input type="text" data-type="search" name="search"  placeholder="搜索店铺或商品" data-mini="true" >
 		</div>
+
+		<div data-role="content" data-theme="d">
 		
-	  <div data-role="content">
-		<form method="post" action="./map.html">
-		  <div data-role="fieldcontain">
-			<input type="search" name="search" id="search" placeholder="搜索内容...">
-		  </div>
-		  <input id="searchBtn" type="button" data-inline="true" value="提交">
-		</form> 
-	  </div>
-	
-	  <div data-role="footer">
-		<h1>我的页脚</h1>
-	  </div>
+			<div class="camera_wrap" id="camera_wrap">
+			    <div data-src="images/1.png"></div>
+			    <div data-src="images/2.png"></div>
+			    <div data-src="images/3.png"></div>
+			</div>
+			<div class="clear"></div>
+			<hr>
 		
+			<div class="ui-grid-c index_group_btn" style="margin:0 10px;">
+			  <div class="ui-block-a">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-b">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-c">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-d">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-a">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-b">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-c">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-d">
+			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
+			  	<span>找卖家</span>
+			  </div>
+			</div>
+			<hr>
+			<h1>最新资讯</h1>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>	
+			<form method="post" action="./map.html">
+				<div data-role="fieldcontain">
+					<input type="search" name="search" id="search"
+						placeholder="搜索内容...">
+				</div>
+				
+				<a href="#map" data-icon="home" data-role="button" data-inline="true">搜索</a>
+			</form>
+		</div>
+
+		<div data-role="footer" data-theme="d" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#" data-icon="info">消息</a></li>
+					<li><a href="#" data-icon="search">定位</a></li>
+					<li><a href="#login" data-icon="grid">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--  index page end-->
 	
 
+	<!--  map PAGE START-->
+	<div data-role="page" id="map">
+		<div data-role="header" data-theme="d">
+			<h1>欢迎访问我的主页</h1>
+		</div>
+
+		<div data-role="content" data-theme="d">
+			<div id="allmap" style="width:auto; height:420px;"></div>
+		</div>
+
+		<div data-role="footer" data-theme="d" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#" data-icon="info">消息</a></li>
+					<li><a href="#" data-icon="search">定位</a></li>
+					<li><a href="#login" data-icon="grid">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- map PAGE END-->
+	
+
+	<!-- shop page start-->
+	<div data-role="page" id="shop">
+
+		<div data-role="header" data-theme="d">
+			<h1>XXXX的店铺</h1>
+			<a href="#" data-icon="star">收藏</a> <a href="map.html"
+				data-icon="grid">地址</a>
+		</div>
+
+		<div data-role="content" data-theme="d">
+
+			<input type="search" name="search" id="search" placeholder="搜索店铺商品">
+			<hr>
+			<div>
+				<a href="#" data-role="button" data-inline="true">类别</a> <a href="#"
+					data-role="button" data-inline="true">类别</a> <a href="#"
+					data-role="button" data-inline="true">类别</a>
+			</div>
+			<hr>
+			<h1>
+				信誉等级 <span>******</span>
+			</h1>
+			<hr>
+
+			<div id="list">
+				<h2>新品区</h2>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#commodity"><img src="./images/7.png"></a>
+					</li>
+					<li><a href="#commodity"><img src="./images/2.png"></a>
+					</li>
+				</ul>
+				<h2>特价区</h2>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#commodity"><img src="./images/3.png"></a>
+					</li>
+					<li><a href="#commodity"><img src="./images/4.png"></a>
+					</li>
+				</ul>
+				<h2>VIP会员区</h2>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#commodity"><img src="./images/5.png"></a>
+					</li>
+					<li><a href="#commodity"><img src="./images/6.png"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div data-role="footer" data-theme="d" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#" data-icon="info">消息</a></li>
+					<li><a href="#" data-icon="search">定位</a></li>
+					<li><a href="#login" data-icon="grid">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- shop page end-->
+	
+
+	<!-- commodity page end-->
+	<div data-role="page" id="commodity">
+
+		<div data-role="controlgroup" data-theme="d" data-type="horizontal">
+			<a href="#" data-role="button">图文详情</a> <a href="#"
+				data-role="button">产品参数</a> <a href="#" data-role="button">购买评价</a>
+		</div>
+
+		<div data-role="content" data-theme="d">
+
+			<img width="280" height="300"
+				src="./images/7.png">
+				
+			<hr>
+			<div data-role="fieldcontain">
+				<label for="lname">产品名称:</label> XXXXX <br> <label for="fname">材质：</label>
+				AS9999 <br> <label for="fname">价格：</label> 888 <label
+					for="fname">销售量：</label> 888
+			</div>
+			<div data-type="horizontal">
+				<a href="#pagetwo" data-role="button" data-inline="true">客服</a> <a
+					href="#pagetwo" data-role="button" data-inline="true">收藏</a> <a
+					href="#cat" data-role="button" data-inline="true">购买</a>
+			</div>	
+			<h1>商品星级总评分: 4.75</h1>
+			<hr>
+			<div>商品评价(220)</div>
+			<h1>店铺推荐</h1>
+			<hr>
+			<div>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#"><img src="./images/2.png" alt="USA"
+							class="ui-li-icon">USA</a></li>
+					<li><a href="#"><img src="./images/3.png"
+							alt="Great Britain" class="ui-li-icon">Great Britain</a></li>
+					<li><a href="#"><img src="./images/4.png"
+							alt="Finland" class="ui-li-icon">Finland</a></li>
+					<li><a href="#"><img src="./images/5.png"
+							alt="Germany" class="ui-li-icon">Germany</a></li>
+					<li><a href="#"><img src="./images/6.png"
+							alt="France" class="ui-li-icon">France</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div data-role="footer" data-theme="d" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#" data-icon="info">消息</a></li>
+					<li><a href="#" data-icon="search">定位</a></li>
+					<li><a href="#login" data-icon="grid">我的</a></li>
+				</ul>
+			</div>
+		</div>
 
 	</div>
 
 
+	<!-- cat page start -->
+	<div data-role="page" id="cat">
+		<div data-role="header" data-theme="d">
+			<h1>购物车</h1>
+		</div>
 
+		<div data-role="content" data-theme="d">
+			<div style="float:left;margin-left:10px;">
+				<img width="120" height="120" src="./images/7.png">
+			</div>
+			<div style="float:left;margin-left:20px;">
+				<ul>
+					<li>$ 888.00</li>
+					<li>库存 1986件</li>
+					<li>已选 AD999</li>
+				</ul>
+			</div>
+			<div style="clear:both;"></div>
+			<hr>
+
+			<div>
+				材质 <input type="button" data-inline="true" data-corners="false"
+					data-shadow="false" value="纯金"> <input type="button"
+					value="纯银" data-inline="true" data-corners="false"
+					data-shadow="false">
+			</div>
+			<hr>
+			<div>
+				克重 <input type="button" data-inline="true" data-corners="false"
+					data-shadow="false" value="3克"> <input type="button"
+					value="4克" data-inline="true" data-corners="false"
+					data-shadow="false">
+			</div>
+			<hr>
+			<div>
+				<div data-role="controlgroup" data-type="horizontal">
+					<p>购买数量 :</p>
+					<a href="#" data-role="button">-</a> <a href="#" data-role="button">1998</a>
+					<a href="#" data-role="button">+</a>
+				</div>
+			</div>
+			<hr>
+			<a href="#order_confirm" data-role="button">确定</a>
+		</div>
+		
+		<div data-role="footer" data-theme="d" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#" data-icon="info">消息</a></li>
+					<li><a href="#" data-icon="search">定位</a></li>
+					<li><a href="#login" data-icon="grid">我的</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	<!-- cat page end -->
+
+
+		<!-- order_confirm page start -->
+		<div data-role="page" id="order_confirm">
+	
+			<div data-role="header" data-theme="d">
+				<h1>确认订单</h1>
+			</div>
+			<div data-role="content" data-theme="d">
+				<div>
+					<a href="#link" data-role="button" data-icon="info"
+						data-iconpos="notext" data-inline="true">搜索</a>
+					<p>收货人： Gavin 电话:13816583702</p>
+					<p>收货地址:上海浦东新区东方路3601号</p>
+					<hr>
+					<p>店铺:金六福珠宝</p>
+				</div>
+	
+				<hr>
+				<div>
+					<label>购买数量</label>
+					<div data-role="controlgroup" data-type="horizontal">
+						<a href="#" data-role="button">-</a> <a href="#" data-role="button">1998</a>
+						<a href="#" data-role="button">+</a>
+					</div>
+					<label> 货运方式 </label> <select id="colors" name="colors">
+						<option value="red">红色</option>
+						<option value="green">绿色</option>
+						<option value="blue">蓝色</option>
+					</select> <label> 运费险 </label> 123
+					<hr>
+					<label> 给买家留言 </label> XXX
+					<hr>
+					<p style=" text-align: right;">合计:2323$</p>
+					<a href="#order_confirm" data-role="button">确认</a>
+				</div>
+			</div>
+			
+			<div data-role="footer" data-theme="d" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#index" data-icon="home">首页</a></li>
+						<li><a href="#" data-icon="info">消息</a></li>
+						<li><a href="#" data-icon="search">定位</a></li>
+						<li><a href="#login" data-icon="grid">我的</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!-- order_confirm page end -->
+
+
+		<!-- login page start -->
+		<div data-role="page" id="login">
+			<div data-role="header" data-theme="d">
+				<h1>用户登录</h1>
+			</div>
+			<div data-role="content" data-theme="d">
+			    <form method="post" action="demoform.asp">
+			      <label for="fname">用户名：</label>
+			      <input type="text" name="fname" id="fname">
+			      <label for="fname">密码：</label>
+			      <input type="text" name="fname" id="fname">
+			      <a href="#userCenter" data-role="button">登录</a>
+			    </form>
+			</div>		
+					
+			<div data-role="footer" data-theme="d" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#index" data-icon="home">首页</a></li>
+						<li><a href="#" data-icon="info">消息</a></li>
+						<li><a href="#" data-icon="search">定位</a></li>
+						<li><a href="#login" data-icon="grid">我的</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- login page end -->
+
+
+		<div data-role="page" id="userCenter">
+			<div data-role="header" data-theme="d">
+				<h1>用户中心</h1>
+			</div>
+			<div data-role="content" data-theme="d">
+			   
+			   
+			   <div class="ui-grid-b" style="margin-top:30px;">
+			     <div class="ui-block-a" style="border-bottom: 1px solid black;"><span>&nbsp;</span></div>
+			     <div class="ui-block-b" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;XXXX</span></div>
+			     <div class="ui-block-c" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;星星星星</span></div>
+			   </div>
+			   <div>
+			   <img alt="" src="./images/uu.jpg" width="80" height="80" style="position:absolute;top:70px;left:30px;z-index:1">
+			   </div>
+			   
+			   <div class="ui-grid-c" style="margin-top:60px;">
+			     <div class="ui-block-a" style="border-bottom: 1px solid black;"><span>&nbsp;<br>&nbsp;</span></div>
+			     <div class="ui-block-b" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;350<br>收藏的宝贝</span></div>
+			     <div class="ui-block-c" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;150<br>收藏的店铺</span></div>
+			     <div class="ui-block-d" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;608<br>看不清</span></div>
+			   </div>
+			   
+			    <div data-role="controlgroup" data-type="horizontal" data-corners="false" data-shadow="false"  data-mini="ture">
+				    <a href="#" data-role="button">代付款</a>
+				    <a href="#" data-role="button" >代发货</a>
+				    <a href="#" data-role="button" >代收货</a>
+				    <a href="#" data-role="button" >待评价</a>
+			    </div>
+			   
+			   <div data-role="controlgroup" data-type="vertical">
+			    <a href="#" data-role="button">全部订单</a>
+			    <a href="#" data-role="button">我的专享特权</a>
+			    <a href="#" data-role="button"></a>
+			   </div>
+			   
+			</div>	
+			
+			<div data-role="footer" data-theme="d" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#index" data-icon="home">首页</a></li>
+						<li><a href="#" data-icon="info">消息</a></li>
+						<li><a href="#" data-icon="search">定位</a></li>
+						<li><a href="#login" data-icon="grid">我的</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
 
 </body>
 </html>
+
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+
+	var json_data = [ [ 116.404, 39.915 ], [ 116.383752, 39.91334 ],
+			[ 116.384502, 39.932241 ] ];
+	var pointArray = new Array();
+	for (var i = 0; i < json_data.length; i++) {
+		var marker = new BMap.Marker(new BMap.Point(json_data[i][0],
+				json_data[i][1])); // 创建点
+		map.addOverlay(marker); //增加点
+		pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+		marker.addEventListener("click", attribute);
+	}
+	//让所有点在视野范围内
+	//map.setViewport(pointArray);
+	//获取覆盖物位置
+	function attribute(e) {
+		var p = e.target;
+		//alert("marker的位置是" + p.getPosition().lng + "," + p.getPosition().lat);
+		$.mobile.changePage("#shop", "slideup"); 
+	}
+</script>
+

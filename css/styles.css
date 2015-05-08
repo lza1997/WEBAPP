@@ -1,3 +1,25 @@
-*{ font-size:12px;}
-.content{}
-.menu{}
+*{ font-size:14px;}
+.clear{clear:both;}
+.ui-content{padding:0;overflow: hidden;}
+#camera_wrap{padding:0!important;}
+
+
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d
+{
+/*border: 1px solid black;*/
+height: 70px;
+font-weight: bold;
+text-align: center;
+padding-top:12px;
+}
+
+.ui-block-a a,
+.ui-block-b a,
+.ui-block-c a,
+.ui-block-d a
+{
+margin:4px auto!important;
+}
