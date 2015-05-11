@@ -7,18 +7,10 @@
 
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
-<link rel="stylesheet" href="./css/camera.css">
+<link rel="stylesheet" type="text/css" href="./css/swipe.css">
 <link rel="stylesheet" type="text/css" href="./css/styles.css">
 
 <style type="text/css">
-#camera_wrap{
-		clear: both;
-		display: block;
-		height: 80px;
-		line-height: 40px;
-		padding: 20px;
-		over-flow:hidden;
-}
 
 </style>
 
@@ -28,23 +20,31 @@
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-<script src="./js/camera.min.js"></script>
+<script src="./js/swipe.min.js"></script>
 
 
 <script>
+
+	$(function(){
+		
+		var bullets = $("#position").find("li");
+		var banner = Swipe(document.getElementById('slides'), {
+			auto: 2000,
+			continuous: true,
+			disableScroll:false,
+			callback: function(pos) {
+				var i = bullets.length;
+				while (i--) {
+				  bullets[i].className = ' ';
+				}
+				bullets[pos].className = 'cur';
+			}
+		});
+	})
+
 	
 
-		jQuery(function(){
-			
-			jQuery('#camera_wrap').camera({
-				time: 500,
-				height:'120px',
-				//loader: 'bar',
-				//thumbnails:false,
-				pagination: false
-			});
-		});
-	
+
 	
 </script>
 
@@ -62,59 +62,90 @@
 		</div>
 
 		<div data-role="content" data-theme="d">
-		
-			<div class="camera_wrap" id="camera_wrap">
-			    <div data-src="images/1.png"></div>
-			    <div data-src="images/2.png"></div>
-			    <div data-src="images/3.png"></div>
+			
+			<div class="addWrap">
+			  <div class="swipe" id="slides">
+			    <div class="swipe-wrap">
+			      <div><a href="javascript:;"><img width="320" class="img-responsive" src="images/activity/l_1.jpg"/></a></div>
+			      <div><a href="javascript:;"><img width="320" class="img-responsive" src="images/activity/l_2.jpg"/></a></div>
+			      <div><a href="javascript:;"><img width="320" class="img-responsive" src="images/activity/l_3.jpg"/></a></div>
+			    </div>
+			  </div>
+			  <ul id="position">
+			    <li class="cur"></li>
+			    <li class=""></li>
+			    <li class=""></li>
+			  </ul>
 			</div>
+			
 			<div class="clear"></div>
+			
+			<div class="ui-grid-c" style="padding:10px 20px;" id="menu">
+			  <div class="ui-block-a">
+			  	<a href="#link"><img width="50" height="50" alt="" src="./images/png/0.png"></a>
+			  	<br/>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-b">
+			  	<a href="#link"><img width="50" height="50" alt="" src="./images/png/1.png"></a>
+			  	<br/>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-c">
+			  	<a href="#link"><img width="50" height="50" alt="" src="./images/png/6.png"></a>
+			  	<br/>
+			  	<span>找卖家</span>
+			  </div>
+			  <div class="ui-block-d">
+			  	<a href="#link"><img width="50" height="50" alt="" src="./images/png/8.png"></a>
+			  	<br/>
+			  	<span>找卖家</span>
+			  </div>
+			</div>
+	
+	
+		   	<div style="margin-top:10px;">
+			   <div class="ui-grid-b" id="category">
+			     <div class="ui-block-a">
+			     	<span class="font">项坠\吊坠</span><br/><span>找商家</span>
+			     	<br>
+			     	<a href="#"><img alt="" width="54" height="54" src="./images/bg/1.png"></a>
+			     </div>
+			     <div class="ui-block-b">
+			     	<span  class="font">宝石工艺品</span><br/><span>找商家</span>
+			     	<br>
+			     	<a href="#"><img alt="" width="54" height="54" src="./images/bg/2.png"></a>
+			     </div>
+			     <div class="ui-block-c">
+			     	<span  class="font">银饰</span><br/><span>找商家</span>
+			     	<br>
+			     	<a href="#"><img alt="" width="54" height="54" src="./images/bg/3.jpg"></a>
+			     </div>
+			   </div>
+		   	</div>
+			
+
+			<div id="news">
+				<h1>最新资讯</h1>
+				<hr>
+				<p>习近平访白俄罗斯有趣一幕 省长部长排队签约</p>
+				<p>社交产品无法“一针捅破天” 运营实力是关键</p>
+				<p>中纪委：有的省过半贪官带病提拔 只靠中央抓不过来</p>
+				<p>沪指上4300点超250股涨停 创业板涨近6%</p>
+			</div>
+		
 			<hr>
 		
-			<div class="ui-grid-c index_group_btn" style="margin:0 10px;">
-			  <div class="ui-block-a">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-b">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-c">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-d">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-a">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-b">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-c">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
-			  <div class="ui-block-d">
-			  	<a href="#link" data-role="button" data-icon="search" data-iconpos="notext">搜索</a>
-			  	<span>找卖家</span>
-			  </div>
+			<div>
+				<input type="search" data-iconpos="right" placeholder="商铺名/地名">
+				<input type="search" placeholder="主营类别">
+				<input type="search" placeholder="地图">
 			</div>
+			
+			
+			<!-- 
 			<hr>
 			<h1>最新资讯</h1>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>	
 			<form method="post" action="./map.html">
 				<div data-role="fieldcontain">
 					<input type="search" name="search" id="search"
@@ -123,12 +154,13 @@
 				
 				<a href="#map" data-icon="home" data-role="button" data-inline="true">搜索</a>
 			</form>
+			 -->
 		</div>
 
-		<div data-role="footer" data-theme="d" data-position="fixed">
+		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#index" data-icon="home" class="ui-btn-active">首页</a></li>
 					<li><a href="#" data-icon="info">消息</a></li>
 					<li><a href="#" data-icon="search">定位</a></li>
 					<li><a href="#login" data-icon="grid">我的</a></li>
@@ -152,7 +184,7 @@
 		<div data-role="footer" data-theme="d" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#index" data-icon="home">首页</a></li>
+					<li><a href="#index" data-icon="home" >首页</a></li>
 					<li><a href="#" data-icon="info">消息</a></li>
 					<li><a href="#" data-icon="search">定位</a></li>
 					<li><a href="#login" data-icon="grid">我的</a></li>
@@ -190,23 +222,23 @@
 			<div id="list">
 				<h2>新品区</h2>
 				<ul data-role="listview" data-inset="true">
-					<li><a href="#commodity"><img src="./images/7.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/7.png"></a>
 					</li>
-					<li><a href="#commodity"><img src="./images/2.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/2.png"></a>
 					</li>
 				</ul>
 				<h2>特价区</h2>
 				<ul data-role="listview" data-inset="true">
-					<li><a href="#commodity"><img src="./images/3.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/3.png"></a>
 					</li>
-					<li><a href="#commodity"><img src="./images/4.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/4.png"></a>
 					</li>
 				</ul>
 				<h2>VIP会员区</h2>
 				<ul data-role="listview" data-inset="true">
-					<li><a href="#commodity"><img src="./images/5.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/5.png"></a>
 					</li>
-					<li><a href="#commodity"><img src="./images/6.png"></a>
+					<li><a href="#commodity"><img src="./images/tmp/6.png"></a>
 					</li>
 				</ul>
 			</div>
@@ -237,7 +269,7 @@
 		<div data-role="content" data-theme="d">
 
 			<img width="280" height="300"
-				src="./images/7.png">
+				src="./images/tmp/7.png">
 				
 			<hr>
 			<div data-role="fieldcontain">
@@ -257,15 +289,15 @@
 			<hr>
 			<div>
 				<ul data-role="listview" data-inset="true">
-					<li><a href="#"><img src="./images/2.png" alt="USA"
+					<li><a href="#"><img src="./images/tmp/2.png" alt="USA"
 							class="ui-li-icon">USA</a></li>
-					<li><a href="#"><img src="./images/3.png"
+					<li><a href="#"><img src="./images/tmp/3.png"
 							alt="Great Britain" class="ui-li-icon">Great Britain</a></li>
-					<li><a href="#"><img src="./images/4.png"
+					<li><a href="#"><img src="./images/tmp/4.png"
 							alt="Finland" class="ui-li-icon">Finland</a></li>
-					<li><a href="#"><img src="./images/5.png"
+					<li><a href="#"><img src="./images/tmp/5.png"
 							alt="Germany" class="ui-li-icon">Germany</a></li>
-					<li><a href="#"><img src="./images/6.png"
+					<li><a href="#"><img src="./images/tmp/6.png"
 							alt="France" class="ui-li-icon">France</a></li>
 				</ul>
 			</div>
@@ -294,7 +326,7 @@
 
 		<div data-role="content" data-theme="d">
 			<div style="float:left;margin-left:10px;">
-				<img width="120" height="120" src="./images/7.png">
+				<img width="120" height="120" src="./images/tmp/7.png">
 			</div>
 			<div style="float:left;margin-left:20px;">
 				<ul>
@@ -439,7 +471,7 @@
 			     <div class="ui-block-c" style="border-bottom: 1px solid black;"><span>&nbsp;&nbsp;&nbsp;星星星星</span></div>
 			   </div>
 			   <div>
-			   <img alt="" src="./images/uu.jpg" width="80" height="80" style="position:absolute;top:70px;left:30px;z-index:1">
+			   <img alt="" src="./images/tmp/uu.jpg" width="80" height="80" style="position:absolute;top:70px;left:30px;z-index:1">
 			   </div>
 			   
 			   <div class="ui-grid-c" style="margin-top:60px;">
