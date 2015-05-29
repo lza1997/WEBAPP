@@ -522,10 +522,36 @@ border-bottom:1px solid #F5F5F5;border-top:1px solid #FB7400;
 #contactPage .info{
 	background-color:#F5F5F5;
 	min-height:300px;
+	padding-top:20px;
 }
 
-#contactPage .info .ui-listview{
-	width:90%;
+#contactPage .info .contactBox{
+	width:80%;
+	margin:0 auto;
+	min-height:60px;
+	border: 1px solid #E6E6E6;
+	border-radius:5px;
+	background-color:#FFF;
+}
+
+#contactPage .info .contactBox .ui-block-a{
+	width:30%;
+	border-bottom:1px solid #E6E6E6;
+	line-height:30px;
+	text-align:center;
+}
+#contactPage .info .contactBox .ui-block-b{
+	width:70%;
+	line-height:30px;
+}
+
+#contactPage .info .contactBox .t_line{
+	border-bottom:1px solid #E6E6E6;
+}
+
+#contactAllmap{
+	margin-top:5px;
+	width:80%;
 }
 
 
